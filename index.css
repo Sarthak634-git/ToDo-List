@@ -31,3 +31,65 @@
 .todo-app h2 img{
     margin-right: 10px;
 }
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    background: #edeef0;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #00cd00;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    user-select: none;
+}
+
+ul li{
+    list-style: none;       /*default style none*/
+    font-size: 18px;
+    padding: 20px 30px 20px 50px;
+    user-select: none;      /* user cannot select the text*/
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before{              /*content before selected element*/
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;      /*Cut decoration*/
+}
+
+ul li.checked::before{
+    background-image: url(images/checked.png);
+}
