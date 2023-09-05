@@ -13,4 +13,27 @@ function addTask(){
         li.appendChild(span);
     }
     inputBox.value="";
+    savetask();
 }
+
+listContainer.addEventListener("click",function(e){
+    if (e.target.tagName === "LI"){   //When you click on a list item, it will add a special style (a class         
+                                      //called "checked") to it to show that it's done.
+        e.target.classList.toggle("checked"); //checking and unchecking the box
+        savetask();
+    }
+    else if(e.target.tagName === "SPAN"){ //if clicked on 'x' do something
+        e.target.parentElement.remove();
+        savetask();
+    }
+}, false);
+
+//localstorage is special storage that web browser provides for small data
+function savetask(){ 
+    localStorage.setItem("data", listContainer.innerHTML);  //setItem take contain fron listContainer    
+}
+
+function showsave(){
+    listContainer.innerHTML = localStorage.getItem("data");//retrives data from savetask()
+}//innerHtml displays savetask()
+showsave();
